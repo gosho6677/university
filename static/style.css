@@ -34,6 +34,10 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+tr:nth-child(even) > td {
+    border-right: 1px solid white;
+}
+
 /* create forms */
 
 input[type=text], input[type=number], select, textarea {

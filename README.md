@@ -5,3 +5,4 @@
 - [ ] Add student service
 - [ ] Add teacher service
 - [ ] Add subject service
+- [ ] ADD ERRORS
