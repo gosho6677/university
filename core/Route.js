@@ -2,25 +2,41 @@ const AllRecordsRoute = require("../routes/AllRecordsRoute");
 const GetCreateStudentRoute = require("../routes/GetCreateStudentRoute");
 const GetCreateSubjectRoute = require("../routes/GetCreateSubjectRoute");
 const GetCreateTeacherRoute = require("../routes/GetCreateTeacherRoute");
+const GetEnrollStudentRoute = require("../routes/GetEnrollStudentRoute");
+const GetMostEnrolledSubjectsRoute = require("../routes/GetMostEnrolledSubjectsRoute");
+const GetRemoveFromDisciplineRoute = require("../routes/GetRemoveFromDisciplineRoute");
+const GetStudentsAndCreditsRoute = require("../routes/GetStudentsAndCreditsRoute");
 const GetStudentsAndDisciplinesRoute = require("../routes/GetStudentsAndDisciplinesRoute");
+const GetTopThreeTeachersRoute = require("../routes/GetTopThreeTeachersRoute");
 const PostCreateStudentRoute = require("../routes/PostCreateStudentRoute");
 const PostCreateSubjectRoute = require("../routes/PostCreateSubjectRoute");
 const PostCreateTeacherRoute = require("../routes/PostCreateTeacherRoute");
+const PostEnrollStudentRoute = require("../routes/PostEnrollStudentRoute");
+const PostRemoveFromDisciplineRoute = require("../routes/PostRemoveFromDiscipline");
 
 class Route {
     init() {
-        return [
+        let routes = [
             // get req routes
-            new AllRecordsRoute().route(),
-            new GetCreateStudentRoute().route(),
-            new GetCreateTeacherRoute().route(),
-            new GetCreateSubjectRoute().route(),
-            new GetStudentsAndDisciplinesRoute().route(),
+            new AllRecordsRoute(),
+            new GetCreateStudentRoute(),
+            new GetCreateTeacherRoute(),
+            new GetCreateSubjectRoute(),
+            new GetStudentsAndDisciplinesRoute(),
+            new GetStudentsAndCreditsRoute(),
+            new GetEnrollStudentRoute(),
+            new GetRemoveFromDisciplineRoute(),
+            new GetMostEnrolledSubjectsRoute(),
+            new GetTopThreeTeachersRoute(),
             // post req routes
-            new PostCreateStudentRoute().route(),
-            new PostCreateTeacherRoute().route(),
-            new PostCreateSubjectRoute().route(),
+            new PostCreateStudentRoute(),
+            new PostCreateTeacherRoute(),
+            new PostCreateSubjectRoute(),
+            new PostEnrollStudentRoute(),
+            new PostRemoveFromDisciplineRoute(),
         ];
+
+        return routes.map(r => r.route());
     }
 }
 

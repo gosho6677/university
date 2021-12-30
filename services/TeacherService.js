@@ -22,6 +22,19 @@ class TeacherService {
         return await dbConnection.promise().query(query);
     }
 
+    async getTopThree() {
+        let query = `
+            SELECT CONCAT(t.first_name, ' ', t.last_name) as full_name, COUNT(DISTINCT st.student_id) as total_students
+            FROM enrollments e, students st, teachers t, subjects sub
+            WHERE st.student_id = e.fk_student_id AND sub.subject_id = fk_subject_id AND sub.fk_teacher_id = t.teacher_id
+            GROUP BY t.teacher_id
+            ORDER BY total_students DESC
+            LIMIT 3;
+        `;
+
+        return await dbConnection.promise().query(query);
+    }
+
     async addOne(title, firstName, lastName) {
         let teacher = new Teacher(title, firstName, lastName);
         let query = "INSERT INTO teachers(title, first_name, last_name) VALUES (?)";

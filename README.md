@@ -5,8 +5,8 @@
 - [x] Add student service
 - [x] Add teacher service
 - [x] Add subject service
-- [ ] REFACTOR WHOLE APP TO NEW OOP DESIGN
-- [ ] Add details page to add/remove student from subject
+- [x] Add details page to add/remove student from subject
+- [ ] REFACTOR WHOLE APP TO NEW OOP DESIGN (90% done)
+- [ ] make dbConnection as Class and include it in services
 - [ ] ADD try catch to GET requests
-- [ ] ADD ERRORS
 - [ ] ADD error page

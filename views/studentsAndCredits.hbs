@@ -5,25 +5,19 @@
             <th>Name</th>
             <th>Credits</th>
         </tr>
-        <tr>
-            <td>Maria Anders</td>
-            <td>
-                25
-            </td>
-        </tr>
-        <tr>
-            <td>Francisco Chang</td>
-            <td>
-                33
-            </td>
-        </tr>
-        <tr>
-            <td>Roland Mendel</td>
-            <td>38</td>
-        </tr>
-        <tr>
-            <td>Helen Bennett</td>
-            <td>85</td>
-        </tr>
+        {{#each students}}
+            <tr>
+                <td>{{full_name}}</td>
+                <td>
+                    {{#if total_credits}}
+                    {{total_credits}}
+                    {{else}}
+                    <p>0</p>
+                    {{/if}}
+                </td>
+            </tr>
+        {{else}}
+        <h2>No students ...</h2>
+        {{/each}}
     </table>
 </div>

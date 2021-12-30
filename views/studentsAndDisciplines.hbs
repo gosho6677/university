@@ -4,7 +4,7 @@
         <tr>
             <th>Name</th>
             <th>Subjects</th>
-            <th>Info</th>
+            <th>Actions</th>
         </tr>
         {{#each students}}
         <tr>
@@ -16,7 +16,10 @@
                     <p>Student isn't enrolled in any subjects.</p>
                 {{/if}}
             </td>
-            <td><a href="#">Add/remove disciplines</a></td>
+            <td>
+                <a class="button" href="/enroll-to-discipline/{{student_id}}">Add disciplines</a>
+                <a class="button" href="/remove-from-discipline/{{student_id}}">Remove disciplines</a>
+            </td>
         </tr>
         {{else}}
         <p>No students available ...</p>

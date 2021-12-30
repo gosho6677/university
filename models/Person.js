@@ -31,10 +31,6 @@ class Person {
 
         this._lastName = value;
     }
-
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
-    }
 }
 
 module.exports = Person;

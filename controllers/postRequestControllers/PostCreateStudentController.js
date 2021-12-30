@@ -10,8 +10,8 @@ class PostCreateStudentController {
     async controller(req, res) {
         let { first_name, last_name, year_in_college } = req.body;
         try {
-            console.log(req.body);
             await this.studentService.addOne(first_name, last_name, year_in_college);
+            
             res.redirect('/');
         } catch (err) {
             console.error(err);
