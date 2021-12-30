@@ -2,7 +2,11 @@
 - [x] Add Frontend view templates
 - [x] Create the database, tables and its relations
 - [x] Update models
-- [ ] Add student service
-- [ ] Add teacher service
-- [ ] Add subject service
+- [x] Add student service
+- [x] Add teacher service
+- [x] Add subject service
+- [ ] REFACTOR WHOLE APP TO NEW OOP DESIGN
+- [ ] Add details page to add/remove student from subject
+- [ ] ADD try catch to GET requests
 - [ ] ADD ERRORS
+- [ ] ADD error page

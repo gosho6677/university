@@ -6,41 +6,20 @@
             <th>Subjects</th>
             <th>Info</th>
         </tr>
+        {{#each students}}
         <tr>
-            <td>Maria Anders</td>
+            <td>{{full_name}}</td>
             <td>
-                Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases,
-                Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases,
-                Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases,
-                Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases,
-                Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases,
-                Databases, Databases, Databases, Databases, Databases, Databases, Databases, Databases,
+                {{#if enrolledSubjects}}
+                    {{enrolledSubjects}}
+                {{else}}
+                    <p>Student isn't enrolled in any subjects.</p>
+                {{/if}}
             </td>
-            <td><a href="#">Add more</a></td>
+            <td><a href="#">Add/remove disciplines</a></td>
         </tr>
-        <tr>
-            <td>Francisco Chang</td>
-            <td>
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms, Algorithms,
-                Algorithms, Algorithms,
-            </td>
-            <td><a href="#">Add more</a></td>
-        </tr>
-        <tr>
-            <td>Roland Mendel</td>
-            <td>3</td>
-            <td><a href="#">Add more</a></td>
-        </tr>
-        <tr>
-            <td>Helen Bennett</td>
-            <td>25</td>
-            <td><a href="#">Add more</a></td>
-        </tr>
+        {{else}}
+        <p>No students available ...</p>
+        {{/each}}
     </table>
 </div>

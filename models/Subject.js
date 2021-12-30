@@ -1,7 +1,8 @@
 class Subject {
-    constructor(name, credits) {
+    constructor(name, credits, teacherId) {
         this.name = name;
         this.credits = credits;
+        this.teacherId = teacherId;
     }
 
     get name() {
@@ -28,6 +29,18 @@ class Subject {
         }
 
         this._credits = value;
+    }
+
+    get teacherId() {
+        return this._teacherId;
+    }
+
+    set teacherId(val) {
+        if(typeof val !== 'number') {
+            throw new Error('Please provide a valid ID');
+        }
+
+        this._teacherId = val;
     }
 }
 

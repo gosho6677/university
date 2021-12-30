@@ -3,7 +3,7 @@ const dbConnection = require('../config/database');
 
 class StudentService {
     async getAll() {
-        let query = "SELECT * FROM students";
+        let query = "SELECT * FROM students ORDER BY first_name, last_name";
         return await dbConnection.promise().query(query);
     }
 
@@ -14,10 +14,26 @@ class StudentService {
         let res = await dbConnection.promise().query(query, [[student.firstName, student.lastName, student.yearInCollege]]);
         return res;
     }
+
+    async getAllWithDisciplines() {
+        let query = `
+            SELECT s.student_id,
+                CONCAT(s.first_name, ' ', s.last_name) as full_name,
+                GROUP_CONCAT(sub.name SEPARATOR ', ') as enrolledSubjects
+            FROM students s
+            LEFT JOIN enrollments e
+            ON s.student_id = e.fk_student_id
+            LEFT JOIN subjects sub
+            ON sub.subject_id = fk_subject_id
+            GROUP BY student_id;
+        `;
+
+        return await dbConnection.promise().query(query);
+    }
 }
 
 // let test = new StudentService();
 // test.addOne('Georgi', 'Palovakisss', 2)
 //     .then(res => console.log(res));
 
-module.exports = new StudentService();
+module.exports = StudentService;

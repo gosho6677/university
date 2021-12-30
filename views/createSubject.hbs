@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="title">Create Subject</h2>
-    <form action="" method="POST">
+    <form method="POST">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Subject name..">
 
@@ -8,11 +8,13 @@
         <input type="number" id="credits" name="credits" placeholder="Credits...">
 
         <label for="teacher">Teacher</label>
-        <select id="teacher" name="teacher">
-            <option value="1">Professor name1</option>
-            <option value="2">Professor name1</option>
+        <select id="teacher" name="teacherId">
+            {{#each teachers}}
+            <option value="{{teacher_id}}">{{title}} {{full_name}}</option>
+            {{/each}}
+            {{!-- <option value="2">Professor name1</option>
             <option value="3">Professor name1</option>
-            <option value="4">Professor name1</option>
+            <option value="4">Professor name1</option> --}}
         </select>
 
         <input type="submit" value="Submit">
