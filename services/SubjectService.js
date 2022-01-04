@@ -1,12 +1,16 @@
 const Subject = require('../models/Subject');
-const dbConnection = require('../config/database');
+const Database = require('../config/Database');
 
 class SubjectService {
+    constructor() {
+        this.dbConnection = new Database().connect();
+    }
+    
     async addOne(name, credits, teacherId) {
         let subject = new Subject(name, Number(credits), Number(teacherId));
         let query = "INSERT INTO subjects(name, credits, fk_teacher_id) VALUES (?, (SELECT teacher_id FROM teachers WHERE teacher_id = ?))";
         
-        return await dbConnection.promise().query(query, [[subject.name, subject.credits], subject.teacherId]);
+        return await this.dbConnection.promise().query(query, [[subject.name, subject.credits], subject.teacherId]);
     }
 
     async getAvailableSubjects(studentId) {
@@ -21,7 +25,7 @@ class SubjectService {
             );
         `;
 
-        return await dbConnection.promise().query(query, [Number(studentId)]);
+        return await this.dbConnection.promise().query(query, [Number(studentId)]);
     }
 
     async getEnrolledSubjects(studentId) {
@@ -31,7 +35,7 @@ class SubjectService {
             WHERE st.student_id = e.fk_student_id AND sub.subject_id = e.fk_subject_id AND st.student_id = ?;
         `;
 
-        return await dbConnection.promise().query(query, [Number(studentId)]);
+        return await this.dbConnection.promise().query(query, [Number(studentId)]);
     }
 
     async getMostEnrolledSubjects() {
@@ -44,7 +48,7 @@ class SubjectService {
             LIMIT 3;
         `;
 
-        return await dbConnection.promise().query(query);
+        return await this.dbConnection.promise().query(query);
     }
 }
 

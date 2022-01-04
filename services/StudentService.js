@@ -1,10 +1,14 @@
 const Student = require('../models/Student');
-const dbConnection = require('../config/database');
+const Database = require('../config/Database');
 
 class StudentService {
+    constructor() {
+        this.dbConnection = new Database().connect();
+    }
+    
     async getAll() {
         let query = "SELECT * FROM students ORDER BY first_name, last_name";
-        return await dbConnection.promise().query(query);
+        return await this.dbConnection.promise().query(query);
     }
 
     async getById(id) {
@@ -14,14 +18,14 @@ class StudentService {
             WHERE student_id = ?;
         `;
 
-        return await dbConnection.promise().query(query, [Number(id)]);
+        return await this.dbConnection.promise().query(query, [Number(id)]);
     }
 
     async addOne(firstName, lastName, yearInCollege) {
         let student = new Student(firstName, lastName, Number(yearInCollege));
         let query = "INSERT INTO students(first_name, last_name, year_in_college) VALUES (?)";
 
-        let res = await dbConnection.promise().query(query, [[student.firstName, student.lastName, student.yearInCollege]]);
+        let res = await this.dbConnection.promise().query(query, [[student.firstName, student.lastName, student.yearInCollege]]);
         return res;
     }
 
@@ -38,7 +42,7 @@ class StudentService {
             GROUP BY student_id;
         `;
 
-        return await dbConnection.promise().query(query);
+        return await this.dbConnection.promise().query(query);
     }
 
     async getAllWithCredits() {
@@ -54,7 +58,7 @@ class StudentService {
             ORDER BY full_name;
         `;
 
-        return await dbConnection.promise().query(query);
+        return await this.dbConnection.promise().query(query);
     }
 
     async enrollToDiscipline(studentId, subjectId) {
@@ -66,7 +70,7 @@ class StudentService {
             );
         `;
 
-        return await dbConnection.promise().query(query, [Number(studentId), Number(subjectId)]);
+        return await this.dbConnection.promise().query(query, [Number(studentId), Number(subjectId)]);
     }
 
     async removeFromDiscipline(studentId, subjectId) {
@@ -75,7 +79,7 @@ class StudentService {
             WHERE fk_student_id = ? AND fk_subject_id = ?;
         `;
 
-        return await dbConnection.promise().query(query, [Number(studentId), Number(subjectId)]);
+        return await this.dbConnection.promise().query(query, [Number(studentId), Number(subjectId)]);
     }
 }
 
