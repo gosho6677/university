@@ -5,25 +5,15 @@
             <th>Name</th>
             <th>Subject: Number of students</th>
         </tr>
+        {{#each teachers}}
         <tr>
-            <td>Maria Anders</td>
+            <td>{{full_name}}</td>
             <td>
-                Databases: 45 students, Databases: 45 students, Databases: 45 students, Databases: 45 students, 
+                {{subjects}}
             </td>
         </tr>
-        <tr>
-            <td>Francisco Chang</td>
-            <td>
-                33
-            </td>
-        </tr>
-        <tr>
-            <td>Roland Mendel</td>
-            <td>38</td>
-        </tr>
-        <tr>
-            <td>Helen Bennett</td>
-            <td>85</td>
-        </tr>
+        {{else}}
+        <h2>No teachers yet...</h2>
+        {{/each}}
     </table>
 </div>

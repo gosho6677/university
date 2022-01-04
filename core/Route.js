@@ -7,6 +7,7 @@ const GetMostEnrolledSubjectsRoute = require("../routes/GetMostEnrolledSubjectsR
 const GetRemoveFromDisciplineRoute = require("../routes/GetRemoveFromDisciplineRoute");
 const GetStudentsAndCreditsRoute = require("../routes/GetStudentsAndCreditsRoute");
 const GetStudentsAndDisciplinesRoute = require("../routes/GetStudentsAndDisciplinesRoute");
+const GetTeachersAndSubjectsRoute = require("../routes/GetTeachersAndSubjectsRoute");
 const GetTopThreeTeachersRoute = require("../routes/GetTopThreeTeachersRoute");
 const PostCreateStudentRoute = require("../routes/PostCreateStudentRoute");
 const PostCreateSubjectRoute = require("../routes/PostCreateSubjectRoute");
@@ -28,6 +29,7 @@ class Route {
             new GetRemoveFromDisciplineRoute(),
             new GetMostEnrolledSubjectsRoute(),
             new GetTopThreeTeachersRoute(),
+            new GetTeachersAndSubjectsRoute(),
             // post req routes
             new PostCreateStudentRoute(),
             new PostCreateTeacherRoute(),

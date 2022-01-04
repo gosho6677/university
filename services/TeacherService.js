@@ -26,6 +26,18 @@ class TeacherService {
         return await this.dbConnection.promise().query(query);
     }
 
+    async getWithSubjects() {
+        let query = `
+            SELECT CONCAT(t.first_name, ' ', t.last_name) as full_name, sub.name, COUNT(st.student_id) as total_enrolled_students
+            FROM enrollments e, teachers t, subjects sub, students st
+            WHERE st.student_id = e.fk_student_id AND sub.subject_id = fk_subject_id AND sub.fk_teacher_id = t.teacher_id
+            GROUP BY t.teacher_id, sub.subject_id
+            ORDER BY full_name, sub.name;
+        `;
+
+        return await this.dbConnection.promise().query(query);
+    }
+
     async getTopThree() {
         let query = `
             SELECT CONCAT(t.first_name, ' ', t.last_name) as full_name, COUNT(DISTINCT st.student_id) as total_students
