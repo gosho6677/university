@@ -1,11 +1,19 @@
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'university',
-});
+class Database {
+    connect() {
+        const connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'root',
+            database: 'university',
+        });
+
+        return connection;
+    }
+}
+
+
 
 // connection.connect(function (err) {
 //     if (err) {
@@ -16,4 +24,4 @@ const connection = mysql.createConnection({
 //     console.log('connected as id ' + connection.threadId);
 // });
 
-module.exports = connection;
+module.exports = Database;

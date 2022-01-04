@@ -5,21 +5,13 @@
             <th>Name</th>
             <th>Number of enrolled students</th>
         </tr>
+        {{#each subjects}}
         <tr>
-            <td>Computer programming</td>
-            <td>263</td>
+            <td>{{name}}</td>
+            <td>{{total_students}}</td>
         </tr>
-        <tr>
-            <td>Databases</td>
-            <td>
-                255
-            </td>
-        </tr>
-        <tr>
-            <td>Advanced mathematics</td>
-            <td>
-                212
-            </td>
-        </tr>
+        {{else}}
+        <h2>No subjects yet...</h2>
+        {{/each}}
     </table>
 </div>
