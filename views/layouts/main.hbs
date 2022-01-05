@@ -40,6 +40,9 @@
         </div>
     </header>
     <main>
+        {{#if error}}
+        <span class="error">{{error}}</span>
+        {{/if}}
         {{{body}}}
     </main>
 </body>
