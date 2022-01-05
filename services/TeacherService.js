@@ -1,4 +1,3 @@
-const Teacher = require('../models/Teacher');
 const Database = require('../config/Database');
 
 class TeacherService {
@@ -27,13 +26,29 @@ class TeacherService {
     }
 
     async getWithSubjects() {
+        // this query includes teachers with 0 taugh subjects
         let query = `
-            SELECT CONCAT(t.first_name, ' ', t.last_name) as full_name, sub.name, COUNT(st.student_id) as total_enrolled_students
-            FROM enrollments e, teachers t, subjects sub, students st
-            WHERE st.student_id = e.fk_student_id AND sub.subject_id = fk_subject_id AND sub.fk_teacher_id = t.teacher_id
-            GROUP BY t.teacher_id, sub.subject_id
-            ORDER BY full_name, sub.name;
+            SELECT CONCAT(t.first_name, ' ', t.last_name) as full_name,
+                ifnull(sub.name, 'No taught subjects') as name,
+                COUNT(st.student_id) as total_enrolled_students
+		    FROM teachers t
+            LEFT JOIN subjects sub
+            ON sub.fk_teacher_id = t.teacher_id
+            LEFT JOIN enrollments e
+            ON sub.subject_id = e.fk_subject_id
+            LEFT JOIN students st
+            ON st.student_id = e.fk_student_id
+		    GROUP BY t.teacher_id, sub.subject_id
+		    ORDER BY full_name, sub.name;
         `;
+
+        // let query = `
+        //     SELECT CONCAT(t.first_name, ' ', t.last_name) as full_name, sub.name, COUNT(st.student_id) as total_enrolled_students
+        //     FROM enrollments e, teachers t, subjects sub, students st
+        //     WHERE st.student_id = e.fk_student_id AND sub.subject_id = fk_subject_id AND sub.fk_teacher_id = t.teacher_id
+        //     GROUP BY t.teacher_id, sub.subject_id
+        //     ORDER BY full_name, sub.name;
+        // `;
 
         return await this.dbConnection.promise().query(query);
     }
@@ -51,11 +66,10 @@ class TeacherService {
         return await this.dbConnection.promise().query(query);
     }
 
-    async addOne(title, firstName, lastName) {
-        let teacher = new Teacher(title, firstName, lastName);
+    async addOne({ title, firstName, lastName }) {
         let query = "INSERT INTO teachers(title, first_name, last_name) VALUES (?)";
 
-        let res = await this.dbConnection.promise().query(query, [[teacher.title, teacher.firstName, teacher.lastName]]);
+        let res = await this.dbConnection.promise().query(query, [[title, firstName, lastName]]);
         return res;
     }
 }

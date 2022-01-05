@@ -1,4 +1,5 @@
 const View = require("../../core/View");
+const Student = require("../../models/Student");
 const StudentService = require("../../services/StudentService");
 
 class PostCreateStudentController {
@@ -10,8 +11,9 @@ class PostCreateStudentController {
     async controller(req, res) {
         let { first_name, last_name, year_in_college } = req.body;
         try {
-            await this.studentService.addOne(first_name, last_name, year_in_college);
-            
+            let student = new Student(first_name, last_name, Number(year_in_college));
+
+            await this.studentService.addOne(student);
             res.redirect('/');
         } catch (err) {
             console.error(err);
