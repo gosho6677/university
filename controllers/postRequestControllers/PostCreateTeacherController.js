@@ -11,10 +11,6 @@ class PostCreateTeacherController {
         let { title, first_name, last_name } = req.body;
 
         try {
-            if(!title || !first_name || !last_name) {
-                throw new Error('Please fill all required fields.');
-            }
-
             await this.teacherService.addOne(title, first_name, last_name);
             res.redirect('/');
         } catch (err) {

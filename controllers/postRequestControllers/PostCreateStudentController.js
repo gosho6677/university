@@ -10,10 +10,6 @@ class PostCreateStudentController {
     async controller(req, res) {
         let { first_name, last_name, year_in_college } = req.body;
         try {
-            if(!first_name || !last_name || !year_in_college) {
-                throw new Error('Please fill in all fields.');
-            }
-
             await this.studentService.addOne(first_name, last_name, year_in_college);
             
             res.redirect('/');

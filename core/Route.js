@@ -9,7 +9,6 @@ const GetStudentsAndCreditsRoute = require("../routes/GetStudentsAndCreditsRoute
 const GetStudentsAndDisciplinesRoute = require("../routes/GetStudentsAndDisciplinesRoute");
 const GetTeachersAndSubjectsRoute = require("../routes/GetTeachersAndSubjectsRoute");
 const GetTopThreeTeachersRoute = require("../routes/GetTopThreeTeachersRoute");
-const NotFoundRoute = require("../routes/NotFoundRoute");
 const PostCreateStudentRoute = require("../routes/PostCreateStudentRoute");
 const PostCreateSubjectRoute = require("../routes/PostCreateSubjectRoute");
 const PostCreateTeacherRoute = require("../routes/PostCreateTeacherRoute");
@@ -37,8 +36,6 @@ class Route {
             new PostCreateSubjectRoute(),
             new PostEnrollStudentRoute(),
             new PostRemoveFromDisciplineRoute(),
-            // not found route
-            new NotFoundRoute(),
         ];
 
         return routes.map(r => r.route());
