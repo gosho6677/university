@@ -5,12 +5,11 @@ class SubjectService {
     constructor() {
         this.dbConnection = new Database().connect();
     }
-    
-    async addOne(name, credits, teacherId) {
-        let subject = new Subject(name, Number(credits), Number(teacherId));
+
+    async addOne({ name, credits, teacherId }) {
         let query = "INSERT INTO subjects(name, credits, fk_teacher_id) VALUES (?, (SELECT teacher_id FROM teachers WHERE teacher_id = ?))";
-        
-        return await this.dbConnection.promise().query(query, [[subject.name, subject.credits], subject.teacherId]);
+
+        return await this.dbConnection.promise().query(query, [[name, credits], teacherId]);
     }
 
     async getAvailableSubjects(studentId) {

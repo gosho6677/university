@@ -5,7 +5,7 @@ class StudentService {
     constructor() {
         this.dbConnection = new Database().connect();
     }
-    
+
     async getAll() {
         let query = "SELECT * FROM students ORDER BY first_name, last_name";
         return await this.dbConnection.promise().query(query);
@@ -21,11 +21,10 @@ class StudentService {
         return await this.dbConnection.promise().query(query, [Number(id)]);
     }
 
-    async addOne(firstName, lastName, yearInCollege) {
-        let student = new Student(firstName, lastName, Number(yearInCollege));
+    async addOne({ firstName, lastName, yearInCollege }) {
         let query = "INSERT INTO students(first_name, last_name, year_in_college) VALUES (?)";
 
-        let res = await this.dbConnection.promise().query(query, [[student.firstName, student.lastName, student.yearInCollege]]);
+        let res = await this.dbConnection.promise().query(query, [[firstName, lastName, yearInCollege]]);
         return res;
     }
 

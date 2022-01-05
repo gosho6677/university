@@ -24,8 +24,8 @@ class Subject {
     }
 
     set credits(value) {
-        if(typeof value !== 'number' || !Number.isInteger(value)) {
-            throw new Error('Please provide an integer value!');
+        if(typeof value !== 'number' || !Number.isInteger(value) || value == 0) {
+            throw new Error('Please provide a positive integer value!');
         }
 
         this._credits = value;
