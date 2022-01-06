@@ -1,4 +1,3 @@
-const Student = require('../models/Student');
 const Database = require('../config/Database');
 
 class StudentService {

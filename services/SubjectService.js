@@ -1,4 +1,3 @@
-const Subject = require('../models/Subject');
 const Database = require('../config/Database');
 
 class SubjectService {
