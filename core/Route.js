@@ -1,20 +1,20 @@
 const AllRecordsRoute = require("../routes/AllRecordsRoute");
-const GetCreateStudentRoute = require("../routes/GetCreateStudentRoute");
-const GetCreateSubjectRoute = require("../routes/GetCreateSubjectRoute");
-const GetCreateTeacherRoute = require("../routes/GetCreateTeacherRoute");
-const GetEnrollStudentRoute = require("../routes/GetEnrollStudentRoute");
-const GetMostEnrolledSubjectsRoute = require("../routes/GetMostEnrolledSubjectsRoute");
-const GetRemoveFromDisciplineRoute = require("../routes/GetRemoveFromDisciplineRoute");
-const GetStudentsAndCreditsRoute = require("../routes/GetStudentsAndCreditsRoute");
-const GetStudentsAndDisciplinesRoute = require("../routes/GetStudentsAndDisciplinesRoute");
-const GetTeachersAndSubjectsRoute = require("../routes/GetTeachersAndSubjectsRoute");
-const GetTopThreeTeachersRoute = require("../routes/GetTopThreeTeachersRoute");
+const GetCreateStudentRoute = require("../routes/studentRoutes/GetCreateStudentRoute");
+const GetRemoveFromDisciplineRoute = require("../routes/studentRoutes/GetRemoveFromDisciplineRoute");
+const GetCreateSubjectRoute = require("../routes/subjectRoutes/GetCreateSubjectRoute");
+const GetMostEnrolledSubjectsRoute = require("../routes/subjectRoutes/GetMostEnrolledSubjectsRoute");
+const PostCreateSubjectRoute = require("../routes/subjectRoutes/PostCreateSubjectRoute");
+const GetCreateTeacherRoute = require("../routes/teacherRoutes/GetCreateTeacherRoute");
+const GetTeachersAndSubjectsRoute = require("../routes/teacherRoutes/GetTeachersAndSubjectsRoute");
+const GetTopThreeTeachersRoute = require("../routes/teacherRoutes/GetTopThreeTeachersRoute");
+const PostCreateTeacherRoute = require("../routes/teacherRoutes/PostCreateTeacherRoute");
+const GetStudentsAndDisciplinesRoute = require("../routes/studentRoutes/GetStudentsAndDisciplinesRoute");
+const GetStudentsAndCreditsRoute = require("../routes/studentRoutes/GetStudentsAndCreditsRoute");
+const GetEnrollStudentRoute = require("../routes/studentRoutes/GetEnrollStudentRoute");
+const PostCreateStudentRoute = require("../routes/studentRoutes/PostCreateStudentRoute");
+const PostEnrollStudentRoute = require("../routes/studentRoutes/PostEnrollStudentRoute");
+const PostRemoveFromDisciplineRoute = require("../routes/studentRoutes/PostRemoveFromDiscipline");
 const NotFoundRoute = require("../routes/NotFoundRoute");
-const PostCreateStudentRoute = require("../routes/PostCreateStudentRoute");
-const PostCreateSubjectRoute = require("../routes/PostCreateSubjectRoute");
-const PostCreateTeacherRoute = require("../routes/PostCreateTeacherRoute");
-const PostEnrollStudentRoute = require("../routes/PostEnrollStudentRoute");
-const PostRemoveFromDisciplineRoute = require("../routes/PostRemoveFromDiscipline");
 
 class Route {
     init() {

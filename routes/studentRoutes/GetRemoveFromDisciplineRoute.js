@@ -1,5 +1,5 @@
-const GetRemoveFromDisciplineController = require("../controllers/getRequestControllers/GetRemoveFromDisciplineController");
-const Controller = require("../core/Controller");
+const GetRemoveFromDisciplineController = require("../../controllers/studentControllers/GetRemoveFromDisciplineController");
+const Controller = require("../../core/Controller");
 
 class GetRemoveFromDisciplineRoute extends Controller {
     constructor() {

@@ -1,5 +1,5 @@
-const GetStudentsAndDisciplinesController = require("../controllers/getRequestControllers/GetStudentsAndDisciplinesController");
-const Controller = require("../core/Controller");
+const GetStudentsAndDisciplinesController = require("../../controllers/studentControllers/GetStudentsAndDisciplinesController");
+const Controller = require("../../core/Controller");
 
 class GetStudentsAndDisciplinesRoute extends Controller {
     constructor() {

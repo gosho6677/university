@@ -1,5 +1,5 @@
-const GetMostEnrolledSubjectsController = require("../controllers/getRequestControllers/GetMostEnrolledSubjectsController");
-const Controller = require("../core/Controller");
+const GetMostEnrolledSubjectsController = require("../../controllers/subjectControllers/GetMostEnrolledSubjectsController");
+const Controller = require("../../core/Controller");
 
 class GetMostEnrolledSubjectsRoute extends Controller {
     constructor() {

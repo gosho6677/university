@@ -1,5 +1,5 @@
-const PostRemoveFromDisciplineController = require("../controllers/postRequestControllers/PostRemoveFromDisciplineController");
-const Controller = require("../core/Controller");
+const PostRemoveFromDisciplineController = require("../../controllers/studentControllers/PostRemoveFromDisciplineController");
+const Controller = require("../../core/Controller");
 
 class PostRemoveFromDisciplineRoute extends Controller {
     constructor() {

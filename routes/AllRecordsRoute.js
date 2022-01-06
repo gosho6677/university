@@ -1,4 +1,4 @@
-const AllRecordsController = require("../controllers/getRequestControllers/AllRecordsController");
+const AllRecordsController = require("../controllers/AllRecordsController");
 const Controller = require("../core/Controller");
 
 class AllRecordsRoute extends Controller {

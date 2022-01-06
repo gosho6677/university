@@ -1,5 +1,5 @@
-const PostCreateSubjectController = require("../controllers/postRequestControllers/PostCreateSubjectController");
-const Controller = require("../core/Controller");
+const PostCreateSubjectController = require("../../controllers/subjectControllers/PostCreateSubjectController");
+const Controller = require("../../core/Controller");
 
 class PostCreateSubjectRoute extends Controller {
     constructor() {

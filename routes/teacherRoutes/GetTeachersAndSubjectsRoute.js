@@ -1,5 +1,5 @@
-const GetTeachersAndSubjectsController = require("../controllers/getRequestControllers/GetTeachersAndSubjectsController");
-const Controller = require("../core/Controller");
+const GetTeachersAndSubjectsController = require("../../controllers/teacherControllers/GetTeachersAndSubjectsController");
+const Controller = require("../../core/Controller");
 
 class GetTeachersAndSubjectsRoute extends Controller {
     constructor() {

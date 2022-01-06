@@ -1,6 +1,6 @@
-const StudentService = require('../../services/StudentService');
-const TeacherService = require('../../services/TeacherService');
-const View = require('../../core/View');
+const StudentService = require('../services/StudentService');
+const TeacherService = require('../services/TeacherService');
+const View = require('../core/View');
 
 class AllRecordsController {
     constructor() {

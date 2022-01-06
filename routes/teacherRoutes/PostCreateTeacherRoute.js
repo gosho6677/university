@@ -1,5 +1,5 @@
-const PostCreateTeacherController = require("../controllers/postRequestControllers/PostCreateTeacherController");
-const Controller = require("../core/Controller");
+const PostCreateTeacherController = require("../../controllers/teacherControllers/PostCreateTeacherController");
+const Controller = require("../../core/Controller");
 
 class PostCreateTeacherRoute extends Controller {
     constructor() {

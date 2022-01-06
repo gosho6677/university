@@ -1,5 +1,5 @@
-const GetCreateSubjectController = require("../controllers/getRequestControllers/GetCreateSubjectController");
-const Controller = require("../core/Controller");
+const GetCreateSubjectController = require("../../controllers/subjectControllers/GetCreateSubjectController");
+const Controller = require("../../core/Controller");
 
 class GetCreateSubjectRoute extends Controller {
     constructor() {

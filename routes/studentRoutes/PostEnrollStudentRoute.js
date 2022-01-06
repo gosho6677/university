@@ -1,5 +1,5 @@
-const PostEnrollStudentController = require("../controllers/postRequestControllers/PostEnrollStudentController");
-const Controller = require("../core/Controller");
+const PostEnrollStudentController = require("../../controllers/studentControllers/PostEnrollStudentController");
+const Controller = require("../../core/Controller");
 
 class PostEnrollStudentRoute extends Controller {
     constructor() {
